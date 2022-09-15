@@ -1,0 +1,32 @@
+.user-table {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #6B7280;
+    
+    & > P {
+        padding: 12px 24px;
+        line-height: 143%;
+        font-weight: 400;
+    }
+
+    &__name {
+        flex: 0 1 21.71%;
+        font-weight: 500;
+        color: #111827;
+    }
+
+    &__date {
+        flex: 1 1 auto;
+        text-align: left;
+    }
+
+    &__status {
+        color: #5D5FEF;
+        flex: 0 1 16.67%;
+    }
+
+    &__status.false {
+        color: #EF5DA8;
+    }
+}

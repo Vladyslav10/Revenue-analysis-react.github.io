@@ -1,14 +1,12 @@
 import axios from 'axios'
 import {setFetchError, setIsFetching, setList} from "../../reducers/pageReducer";
 
-export const getRepos = (searchQuery = "stars:%3E1", currentPage, perPage) => {
-    if (searchQuery === "") {
-        searchQuery = "stars:%3E1";
-    }
+export const getUsers = () => {
+    
     return async (dispatch) => {
         try {
             dispatch(setIsFetching(true))
-            const response = await axios.get(``)
+            const response = await axios.get(`https://oril-coins-test.herokuapp.com/list`)
             dispatch(setList(response.data))
         } catch (e) {
             dispatch(setFetchError(true))
@@ -21,7 +19,7 @@ export const getRepos = (searchQuery = "stars:%3E1", currentPage, perPage) => {
     }
 }
 
-export const getCurrentRepo = async (setList) => {
-    const response = await axios.get(``)
+export const getCurrentRepo = async (setList, id) => {
+    const response = await axios.get(`https://oril-coins-test.herokuapp.com/item/${id}`)
     setList(response.data)
 }

@@ -20,6 +20,7 @@
     &__date {
         flex: 1 1 auto;
         text-align: left;
+        overflow: hidden;
     }
 
     &__status {
@@ -29,5 +30,32 @@
 
     &__status.false {
         color: #EF5DA8;
+    }
+}
+
+@media (max-width: 768px){
+    .user-table {
+        &__name {
+            flex: 0 1 33.333%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    
+        &__date {
+            flex: 1 1 33.334%;
+        }
+    
+        &__status {
+            flex: 0 1 33.333%;
+        }
+    }
+}
+
+@media (max-width: 480px){
+    .user-table {
+        & > P {
+            padding: 10px 15px;
+        }
     }
 }

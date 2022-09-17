@@ -33,6 +33,7 @@
 }
 
 .table {
+
     display: flex;
     flex-direction: column;
     border: 1px solid #E5E7EB;
@@ -52,63 +53,42 @@
             line-height: 133%;
             font-weight: 500;
         }
-        
-    }
 
-    &__name {
-        flex: 0 1 21.71%;
-        position: relative;
-
-        &::before{
+        & > P:not(:first-child)::before {
             content:url('../../assets/list/bot.svg');
             position: absolute;
             top: 9.5px;
             left: 70px;
             width: 6px;
             height: 4.5px;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
         }
+
+        & > P.active::before {
+            transform: rotate(180deg);
+            top: 23px;
+        }
+        
+    }
+
+    &__name {
+        flex: 0 1 21.71%;
     }
 
     &__date {
         flex: 1 1 auto;
+        position: relative;
+        cursor: pointer;
     }
 
     &__status {
+        cursor: pointer;
         flex: 0 1 16.67%;
+        position: relative;
     }
 
     & > .user-table:not(:last-child) {
         border-bottom: 1px solid #F6F6F6;
-    }
-}
-
-.alert {
-    font-size: 28px;
-    color: red;
-    text-align: center;
-    margin: 0px 0px 20px 0px;
-}
-
-.fetching {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    margin: 30px auto;
-    border: 2px dashed green;
-    animation-name: search-fetching;
-    animation-duration: 0.5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: linear;
-}
-  
-@keyframes search-fetching {
-    0% {
-      transform: rotate(0deg);
-    }
-  
-  
-    100% {
-      transform: rotate(-360deg) scale(1.1);
     }
 }
